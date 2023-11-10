@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de pedidos</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    <div> <!--FORMULÁRIO-->
+        <form action="https://isellertecnologia.com.br/index.php/enviado-com-sucesso/" method="post">
+            <label for="email">PEDIDO OBS.: SE RETIRADO 19% DE DESCONTO</label>
+            <div style="display: flex; gap: 5px;">
+                <div>
+                    <input class="dados" type="text" id="email" name="forma_de_pagamento"
+                        placeholder="Forma de pagamento (Pix, Transferência, Débito, Crédito, Boleto)" required>
+                    <input class="dados" type="text" id="nome_origem" name="nome_origem" placeholder="Nome da loja"
+                        required>
+                    <input class="dados" type="text" id="comprador" name="comprador" placeholder="Comprador" required>
+                </div>
+                <div>
+                    <input class="dados" type="text" id="cnpj" name="cnpj" placeholder="CNPJ" required>
+                    <input class="dados" type="text" id="endereco" name="endereco" placeholder="Endereço " required>
+                    <input class="dados" type="text" id="celular_origem" name="celular_origem" placeholder="Celular"
+                        required>
+                </div>
+            </div>
+    
+    
+            <input class="dados" type="email" id="email_origem" name="email_origem" placeholder="Email" required>
+    
+    
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cod </th>
+                        <th>CX</th>
+                        <th>PRODUTO</th>
+                        <th>MARCA</th>
+                        <th>CX/PESO</th>
+                        <th>R$</th>
+                        <th>TROC</th>
+                        <th>QUANT.</th>
+                        <th>valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_1" value="7" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_1' /></td>
+                        <td><input type="text" name="nome_produto_1" id="nomeProduto_1" value="Batata Palha" readonly></td>
+                        <td><input type="text" name="marca_produto_1" value="Biscoitone" readonly></td>
+                        <td><input type="text" name="peso_produto_1" value="24x150g" readonly>
+                            <p class="unidadesdacaixa">24</p>
+                        </td>
+                        <td class="preco" name="preco_1">8.99</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_1' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_1'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_1' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_2" value="37" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_2' /></td>
+                        <td><input type="text" name="nome_produto_2" id="nomeProduto_2" value="Suspiro Biscoitone" readonly>
+                        </td>
+                        <td><input type="text" name="marca_produto_2" value="Biscoitone" readonly></td>
+                        <td><input type="text" name="peso_produto_2" value="30x150g" readonly>
+                            <p class="unidadesdacaixa">30</p>
+                        </td>
+                        <td class="preco" name="preco_2">5.39</td>
+                        <td><input class="troca" type='text' name='troca_produto_2' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_2'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_2' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_3" value="305" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_3' /></td>
+                        <td><input type="text" name="nome_produto_3" id="nomeProduto_3" value="Palito Caseiro" readonly>
+                        </td>
+                        <td><input type="text" name="marca_produto_3" value="Berbert" readonly></td>
+                        <td><input type="text" name="peso_produto_3" value="20x100g" readonly>
+                            <p class="unidadesdacaixa">20</p>
+                        </td>
+                        <td class="preco">4.49</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_3' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_3'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_3' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_4" value="31" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_4' /></td>
+                        <td><input type="text" id="nomeProduto_4" name="nome_produto_4" value="Biscovilho Doce" readonly>
+                        </td>
+                        <td><input type="text" name="marca_produto_4" value="Granneieri" readonly></td>
+                        <td><input type="text" name="peso_produto_4" value="20x80g" readonly>
+                            <p class="unidadesdacaixa">20</p>
+                        </td>
+                        <td class="preco">3.59</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_4' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_4'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_4' readonly></td>
+                    </tr>
+    
+                    <tr>
+                        <td><input type="text" name="codigo_produto_5" value="30" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_5' /></td>
+                        <td><input type="text" id="nomeProduto_5" name="nome_produto_5" value="Biscovilho Salgado" readonly>
+                        </td>
+                        <td><input type="text" name="marca_produto_5" value="Granneieri" readonly></td>
+                        <td><input type="text" name="peso_produto_5" value="20x80g" readonly>
+                            <p class="unidadesdacaixa">20</p>
+                        </td>
+                        <td class="preco">3.59</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_5' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_5'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_5' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_6" value="35" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_6' /></td>
+                        <td><input type="text" id="nomeProduto_6" name="nome_produto_6" value="Biscovilho Queijo" readonly>
+                        </td>
+                        <td><input type="text" name="marca_produto_6" value="Granneieri" readonly></td>
+                        <td><input type="text" name="peso_produto_6" value="20x80g" readonly>
+                            <p class="unidadesdacaixa">20</p>
+                        </td>
+                        <td class="preco">3.59</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_6' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_6'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_6' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_7" value="1" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_7' /></td>
+                        <td><input type="text" id="nomeProduto_7" name="nome_produto_7" value="Rosca de Leite" readonly>
+                        </td>
+                        <td><input type="text" name="marca_produto_7" value="Jóia de Mantiq." readonly></td>
+                        <td><input type="text" name="peso_produto_7" value="24x200g" readonly>
+                            <p class="unidadesdacaixa">24</p>
+                        </td>
+                        <td class="preco">4.79</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_7' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_7'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_7' readonly></td>
+                    </tr>
+    
+                    <tr>
+                        <td><input type="text" name="codigo_produto_8" value="3" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_8' /></td>
+                        <td><input type="text" id="nomeProduto_8" name="nome_produto_8" value="Sequilho Joia Mant."
+                                readonly></td>
+                        <td><input type="text" name="marca_produto_8" value="Jóia de Mantiq." readonly></td>
+                        <td><input type="text" name="peso_produto_5" value="30x200g" readonly>
+                            <p class="unidadesdacaixa">30</p>
+                        </td>
+                        <td class="preco">5.49</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_8' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_8'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_8' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_9" value="32" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_9' /></td>
+                        <td><input type="text" id="nomeProduto_9" name="nome_produto_9" value="Broa de Amendoim" readonly>
+                        </td>
+                        <td><input type="text" name="marca_produto_9" value="Klain" readonly></td>
+                        <td><input type="text" name="peso_produto_9" value="25x250g" readonly>
+                            <p class="unidadesdacaixa">25</p>
+                        </td>
+                        <td class="preco">6.29</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_9' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_9'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_9' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_10" value="36" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_10' /></td>
+                        <td><input type="text" id="nomeProduto_10" name="nome_produto_10" value="Amendoim Chocolate"
+                                readonly></td>
+                        <td><input type="text" name="marca_produto_10" value="Klain" readonly></td>
+                        <td><input type="text" name="peso_produto_10" value="25x260g" readonly>
+                            <p class="unidadesdacaixa">25</p>
+                        </td>
+                        <td class="preco">6.99</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_10' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_10'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_10' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_101" value="326" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_11' /></td>
+                        <td><input type="text" id="nomeProduto_11" name="nome_produto_101" value="Choco Rosca" readonly>
+                        </td>
+                        <td><input type="text" name="marca_produto_101" value="Klain" readonly></td>
+                        <td><input type="text" name="peso_produto_101" value="25x260g" readonly>
+                            <p class="unidadesdacaixa">25</p>
+                        </td>
+                        <td class="preco">6.29</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_101' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_101'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_101' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_11" value="156" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_11' /></td>
+                        <td><input type="text" id="nomeProduto_122" name="nome_produto_11" value="Bisc. Amantegado"
+                                readonly></td>
+                        <td><input type="text" name="marca_produto_11" value="Klain" readonly></td>
+                        <td><input type="text" name="peso_produto_101" value="25x240g" readonly>
+                            <p class="unidadesdacaixa">25</p>
+                        </td>
+                        <td class="preco">5.19</td>
+                        <td><input class="troca" type='text' name='troca_produto_11' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_11'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_11' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_12" value="275" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_12' /></td>
+                        <td><input type="text" id="nomeProduto_13" name="nome_produto_12" value="Geléia Mocoforte" readonly>
+                        </td>
+                        <td><input type="text" name="marca_produto_12" value="Mocoforte" readonly></td>
+                        <td><input type="text" name="peso_produto_12" value="50x140g" readonly>
+                            <p class="unidadesdacaixa">50</p>
+                        </td>
+                        <td class="preco">3.19</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_12' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_12'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_12' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_13" value="279" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_13' /></td>
+                        <td><input type="text" id="nomeProduto_133" name="nome_produto_13" value="Arroz Caram. (P)"
+                                readonly></td>
+                        <td><input type="text" name="marca_produto_13" value="Paulista" readonly></td>
+                        <td><input type="text" name="peso_produto_13" value="24x90g" readonly>
+                            <p class="unidadesdacaixa">24</p>
+                        </td>
+                        <td class="preco">4.89</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_13' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_13'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_13' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_14" value="20" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_14' /></td>
+                        <td><input type="text" id="nomeProduto_14" name="nome_produto_14" value="Champagne (G)" readonly>
+                        </td>
+                        <td><input type="text" name="marca_produto_14" value="Paulista" readonly></td>
+                        <td><input type="text" name="peso_produto_14" value="12x300g" readonly>
+                            <p class="unidadesdacaixa">12</p>
+                        </td>
+                        <td class="preco">9.19</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_14' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_14'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_14' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_15" value="201" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_15' /></td>
+                        <td><input type="text" id="nomeProduto_15" name="nome_produto_15" value="Champagne (P)" readonly>
+                        </td>
+                        <td><input type="text" name="marca_produto_15" value="Paulista" readonly></td>
+                        <td><input type="text" name="peso_produto_15" value="24x150g" readonly>
+                            <p class="unidadesdacaixa">24</p>
+                        </td>
+                        <td class="preco">4.69</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_15' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_15'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_15' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_16" value="202" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_16' /></td>
+                        <td><input type="text" id="nomeProduto_16" name="nome_produto_16" value="Sembei" readonly></td>
+                        <td><input type="text" name="marca_produto_16" value="Paulista" readonly></td>
+                        <td><input type="text" name="peso_produto_16" value="12x250g" readonly>
+                            <p class="unidadesdacaixa">12</p>
+                        </td>
+                        <td class="preco">11.59</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_16' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_16'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_16' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_161" value="205" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_161' /></td>
+                        <td><input type="text" id="nomeProduto_17" name="nome_produto_161" value="Sembei" readonly></td>
+                        <td><input type="text" name="marca_produto_161" value="Paulista" readonly></td>
+                        <td><input type="text" name="peso_produto_161" value="24x90g" readonly>
+                            <p class="unidadesdacaixa">24</p>
+                        </td>
+                        <td class="preco">4.99</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_161' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_161'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_161' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_17" value="10" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_17' /></td>
+                        <td><input type="text" id="nomeProduto_18" name="nome_produto_17" value="Sequilho Paulista"
+                                readonly></td>
+                        <td><input type="text" name="marca_produto_17" value="Paulista" readonly></td>
+                        <td><input type="text" name="peso_produto_17" value="24x200g" readonly>
+                            <p class="unidadesdacaixa">24</p>
+                        </td>
+                        <td class="preco">5.99</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_17' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_17'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_17' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_18" value="269" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_18' /></td>
+                        <td><input type="text" id="nomeProduto_19" name="nome_produto_18" value="Bisc. Petyan Coco"
+                                readonly></td>
+                        <td><input type="text" name="marca_produto_18" value="Petyan" readonly></td>
+                        <td><input type="text" name="peso_produto_18" value="15x350g" readonly>
+                            <p class="unidadesdacaixa">15</p>
+                        </td>
+                        <td class="preco">3.69</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_18' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_18'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_18' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_19" value="270" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_19' /></td>
+                        <td><input type="text" name="nome_produto_19" value="Bisc. Petyan Doce FD" readonly></td>
+                        <td><input type="text" name="marca_produto_19" value="Petyan" readonly></td>
+                        <td><input type="text" name="peso_produto_19" value="20x350g" readonly>
+                            <p class="unidadesdacaixa">20</p>
+                        </td>
+                        <td class="preco">3.49</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_19' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_19'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_19' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_20" value="252" readonly></td>
+                        <td><input class="caixa" id="nomeProduto_21" type='text' name='caixa_completa_20' /></td>
+                        <td><input type="text" id="nomeProduto_20" name="nome_produto_20" value="Sete Capa" readonly></td>
+                        <td><input type="text" name="marca_produto_20" value="São Benedito" readonly></td>
+                        <td><input type="text" name="peso_produto_20" value="20x300g" readonly>
+                            <p class="unidadesdacaixa">20</p>
+                        </td>
+                        <td class="preco">7.89</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_20' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_20'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_20' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_21" value="15" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_21' /></td>
+                        <td><input type="text" id="nomeProduto_22" name="nome_produto_21" value="Pipoca" readonly></td>
+                        <td><input type="text" name="marca_produto_21" value="Tigrinho" readonly></td>
+                        <td><input type="text" name="peso_produto_21" value="30x75g" readonly>
+                            <p class="unidadesdacaixa">30</p>
+                        </td>
+                        <td class="preco">1.89</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_21' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_21'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_21' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_22" value="471" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_22' /></td>
+                        <td><input type="text" id="nomeProduto_23" name="nome_produto_22" value="Americano Xique" readonly>
+                        </td>
+                        <td><input type="text" name="marca_produto_22" value="Elnata" readonly></td>
+                        <td><input type="text" name="peso_produto_22" value="16x250g" readonly>
+                            <p class="unidadesdacaixa">16</p>
+                        </td>
+                        <td class="preco">5.89</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_22' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_22'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_22' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_23" value="472" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_23' /></td>
+                        <td><input type="text" id="nomeProduto_24" name="nome_produto_23" value="Canela Xique" readonly>
+                        </td>
+                        <td><input type="text" name="marca_produto_23" value="Elnata" readonly></td>
+                        <td><input type="text" name="peso_produto_23" value="16x250g" readonly>
+                            <p class="unidadesdacaixa">16</p>
+                        </td>
+                        <td class="preco">6.39</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_23' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_23'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_23' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_24" value="12" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_24' /></td>
+                        <td><input type="text" id="nomeProduto_25" name="nome_produto_24" value="P. Mel Beijo Divino"
+                                readonly></td>
+                        <td><input type="text" name="marca_produto_24" value="Tafai" readonly></td>
+                        <td><input type="text" name="peso_produto_24" value="20x300g" readonly>
+                            <p class="unidadesdacaixa">20</p>
+                        </td>
+                        <td class="preco">7.59</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_24' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_24'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_24' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_25" value="50" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_25' /></td>
+                        <td><input type="text" id="nomeProduto_27" name="nome_produto_25" value="P. Mel Beijo Rei" readonly>
+                        </td>
+                        <td><input type="text" name="marca_produto_25" value="Tafai" readonly></td>
+                        <td><input type="text" name="peso_produto_25" value="12x300g" readonly>
+                            <p class="unidadesdacaixa">12</p>
+                        </td>
+                        <td class="preco">5.89</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_25' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_25'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_25' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_26" value="25" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_26' /></td>
+                        <td><input type="text" id="nomeProduto_277" name="nome_produto_26" value="P. Mel Beijo Glacial"
+                                readonly></td>
+                        <td><input type="text" name="marca_produto_26" value="Tafai" readonly></td>
+                        <td><input type="text" name="peso_produto_26" value="20x300g" readonly>
+                            <p class="unidadesdacaixa">20</p>
+                        </td>
+                        <td class="preco">5.89</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_26' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_26'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_26' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_261" value="28" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_261' /></td>
+                        <td><input type="text" id="nomeProduto_28" name="nome_produto_261" value="P. Mel Beijo Tafai"
+                                readonly></td>
+                        <td><input type="text" name="marca_produto_261" value="Tafai" readonly></td>
+                        <td><input type="text" name="peso_produto_261" value="12x300g" readonly>
+                            <p class="unidadesdacaixa">12</p>
+                        </td>
+                        <td class="preco">5.59</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_261' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_261'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_261' readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="codigo_produto_27" value="263" readonly></td>
+                        <td><input class="caixa" type='text' name='caixa_completa_27' /></td>
+                        <td><input type="text" id="nomeProduto_29" name="nome_produto_27" value="Coquinho" readonly></td>
+                        <td><input type="text" name="marca_produto_27" value="Pedrosa" readonly></td>
+                        <td><input type="text" name="peso_produto_27" value="12x400g" readonly>
+                            <p class="unidadesdacaixa">12</p>
+                        </td>
+                        <td class="preco">6.39</td>
+    
+                        <td><input class="troca" type='text' name='troca_produto_27' /></td>
+                        <td><input class="quantidade" type='text' name='quantidade_produto_27'
+                                oninput="calcularSubtotal(this); calcularTotalQuantidade();" /></td>
+                        <td><input class="subtotal" type='text' name='subtotal_27' readonly></td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--TOTAIS-->
+            <div style="display: flex;justify-content: flex-end; position: relative;
+        gap: 5px;">
+                <div style="border: 1px solid red; width: 50px;"> CAIXA <input class="totalCaixa" type='text'
+                        name='caixa' /></div>
+                <div style="border: 1px solid red; width: 79px;"> UNIDADES <input class="totalQuantidade" type="text"
+                        name="total_quantidade" readonly /></div>
+                <div style="display: flex;justify-content: flex-end;">
+                    <div id="totalDiv" style="border: 1px solid red; width: 100px;">
+                        Total: <input type="text" name="total" id="totalInput" readonly />
+                    </div>
+                </div>
+            </div>
+            <input type="submit" style="background-color: red; " value="Enviar Pedido">
+        </form>
+    
+    </div>
+    <!--MENU-->
+    <div style="position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 1999999999;
+        width: 100%;
+        background: #489EFF; border-top: 3px solid red;
+      ">
+        <ul class="menu">
+            <li style="background-color:#C9AF38;"><a href="https://isellertecnologia.com.br/">MENU</a></li>
+            <li style="background-color:#E7E9A7;"><a href="https://isellertecnologia.com.br/">CAPA</a></li>
+            <li style="background-color:#E7E9A7;"><a
+                    href="https://isellertecnologia.com.br/index.php/produtos/">PRODUTOS</a></li>
+            <li style="background-color:#E7E9A7;"><a href="https://isellertecnologia.com.br/index.php/pedidos/">PEDIDOS</a>
+            </li>
+            <li style="background-color:#E7E9A7;"><a href="https://isellertecnologia.com.br/index.php/onde-tem/">ONDE
+                    TEM</a></li>
+            <li style="background-color:#E7E9A7;"><a href="https://isellertecnologia.com.br/index.php/tabela/">TABELA</a>
+            </li>
+            <li style="background-color:#E7E9A7;"><a
+                    href="https://isellertecnologia.com.br/index.php/localizacao/">LOCALIZAÇÃO</a></li>
+            <li style="background-color:#489EFF;"><a href="#tabela">TAFAÍ... COM DEUS AMOR E PAZ - PARCEIRO SEMPRE MESMO</a>
+            </li>
+        </ul>
+    </div>
+    
+    <!--POPUPS DAS IMAGEMS DOS PRODUTOS-->
+    <div id="produtoPopup_1" class="popup">
+        <div class="content-img">
+            <span id="fecharPopup_1" class="fechar">&times;</span>
+            <img id="imagemProduto_1" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/BatataPalha-1.png"
+                alt="Imagem do Produto">
+        </div>
+    </div>
+    <div id="produtoPopup_2" class="popup">
+        <div class="content-img">
+            <span id="fecharPopup_2" class="fechar">&times;</span>
+            <img id="imagemProduto_2" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/Suspiro-1.png"
+                alt="Imagem do Produto">
+        </div>
+    </div>
+    <div id="produtoPopup_4" class="popup">
+        <span id="fecharPopup_4" class="fechar">&times;</span>
+        <img id="imagemProduto_4" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/BicovilhSalg1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_5" class="popup">
+        <span id="fecharPopup_5" class="fechar">&times;</span>
+        <img id="imagemProduto_5" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/BiscovilhDoce-1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_6" class="popup">
+        <span id="fecharPopup_6" class="fechar">&times;</span>
+        <img id="imagemProduto_6" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/BiscovilhQueij-1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_7" class="popup">
+        <span id="fecharPopup_7" class="fechar">&times;</span>
+        <img id="imagemProduto_7" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/RosquinLeite-1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_8" class="popup">
+        <span id="fecharPopup_8" class="fechar">&times;</span>
+        <img id="imagemProduto_8" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/SequiJoia-1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_9" class="popup">
+        <span id="fecharPopup_9" class="fechar">&times;</span>
+        <img id="imagemProduto_9" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/BroaAmend-1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_10" class="popup">
+        <span id="fecharPopup_10" class="fechar">&times;</span>
+        <img id="imagemProduto_10" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/AmendChoc.1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_11" class="popup">
+        <span id="fecharPopup_11" class="fechar">&times;</span>
+        <img id="imagemProduto_11" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/Chocorrosca-1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_13" class="popup">
+        <span id="fecharPopup_13" class="fechar">&times;</span>
+        <img id="imagemProduto_13" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/GeleiMocot.-1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_133" class="popup">
+        <span id="fecharPopup_133" class="fechar">&times;</span>
+        <img id="imagemProduto_133" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/ArrozCaramel.1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_14" class="popup">
+        <span id="fecharPopup_14" class="fechar">&times;</span>
+        <img id="imagemProduto_14" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/Champagne-1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_15" class="popup">
+        <span id="fecharPopup_15" class="fechar">&times;</span>
+        <img id="imagemProduto_15" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/Champagn-1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_16" class="popup">
+        <span id="fecharPopup_16" class="fechar">&times;</span>
+        <img id="imagemProduto_16" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/Sembei-1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_17" class="popup">
+        <span id="fecharPopup_17" class="fechar">&times;</span>
+        <img id="imagemProduto_17" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/Sembeizin-1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_18" class="popup">
+        <span id="fecharPopup_18" class="fechar">&times;</span>
+        <img id="imagemProduto_18" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/SequiPaulist-1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_19" class="popup">
+        <span id="fecharPopup_19" class="fechar">&times;</span>
+        <img id="imagemProduto_19" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/CocoPetyan-1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_20" class="popup">
+        <span id="fecharPopup_20" class="fechar">&times;</span>
+        <img id="imagemProduto_20" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/SetCapa-1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_22" class="popup">
+        <span id="fecharPopup_22" class="fechar">&times;</span>
+        <img id="imagemProduto_22" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/Pipoca-1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_24" class="popup">
+        <span id="fecharPopup_24" class="fechar">&times;</span>
+        <img id="imagemProduto_24" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/FoliadCanela-1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_25" class="popup">
+        <span id="fecharPopup_25" class="fechar">&times;</span>
+        <img id="imagemProduto_25" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/BeijoDivino-1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_27" class="popup">
+        <span id="fecharPopup_27" class="fechar">&times;</span>
+        <img id="imagemProduto_27" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/BeijoDeRei-1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_277" class="popup">
+        <span id="fecharPopup_277" class="fechar">&times;</span>
+        <img id="imagemProduto_277" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/BeijoGlacial-1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_28" class="popup">
+        <span id="fecharPopup_28" class="fechar">&times;</span>
+        <img id="imagemProduto_28" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/BeijoTafai-1.png"
+            alt="Imagem do Produto">
+    </div>
+    <div id="produtoPopup_29" class="popup">
+        <span id="fecharPopup_29" class="fechar">&times;</span>
+        <img id="imagemProduto_29" src="http://isellertecnologia.com.br/wp-content/uploads/2023/08/CoquinProdasa-1-1.png"
+            alt="Imagem do Produto">
+    </div>
+</body>
+</html>

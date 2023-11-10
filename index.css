@@ -1,0 +1,105 @@
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th{
+        background: red;
+        color: #ffff;
+        font-weight: 600;
+         border-left: 2px solid #FFFF !important;
+    }
+    
+    td {
+        border: 2px solid red !important;
+        padding: 4px !important;
+        text-align: center;
+    }
+    .dados {
+        margin-bottom: 5px;
+        border: 1px solid red !important; 
+    }
+    .menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+    
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    border-bottom: 28px solid red;
+    border-right: 28px solid red;
+    border-left: 28px solid red;
+    
+  }
+
+  .menu li {
+    float: left;
+    border-right: 3px solid red;
+     
+  }
+
+  .menu li:last-child {
+    border-right: none;
+  }
+
+  .menu li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 17px;
+    text-decoration: none;
+  }
+  .unidadesdacaixa{
+      display: none;
+  }
+  .popup {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+      padding-top: 30px;
+    }
+
+    .popup img {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      width: 300px;
+      
+    
+    }
+    .popup img::after{
+      display: flex;
+      align-items: flex-start;
+      justify-self: center;
+      position: absolute;
+      top: 1%;
+    }
+
+    .fechar {
+      position: absolute;
+      top: 1%;
+      left: 2%;
+      color: red;
+      font-size: 50px;
+      cursor: pointer;
+      cursor: pointer;
+      
+    }
+    .content-img{
+    display: flex;
+    max-width: 100%;
+    width: 300px;
+    position: absolute;
+    
+    left: 40%;
+    z-index: 999999999;
+    align-items: center;
+    justify-content: center;
+    }
