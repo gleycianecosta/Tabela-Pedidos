@@ -1,3 +1,4 @@
-static/* linguist-vendored
-site_cartao/static/* linguist-vendored
-site_cartao/templates/* linguist-vendored
+*.html linguist-vendored
+!*.js linguist-vendored=false
+!*.php linguist-vendored=false
+
